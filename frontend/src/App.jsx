@@ -1,38 +1,51 @@
 import { useState, useEffect } from 'react'
 // import axios from "axios"
-import { getPost, getPosts, createPost, deletePost, updatePost } from './api'
+
 import './App.css'
 
+import {HashRouter as Router, Routes, Route} from "react-router-dom"
+import { About } from '../pages/about'
+import { Contact } from '../pages/contact'
+import { CreateBlog } from '../pages/createblog'
+import { Home } from '../pages/home'
+import { Landing } from '../pages/landing'
+import { Profile } from '../pages/profile'
+import { ReadBlog } from '../pages/readblog'
+import { Navbar } from '../components/Navbar'
+import { NavLink } from 'react-router-dom'
+import { Layout } from '../components/Layout'
+
 function App() {
-  const [posts, setPosts] = useState()
 
-  // function createPost(){
-  //   let postObject = {
-  //     title: "React Native vs React",
-  //     description: "What is the difference",
-  //     content: "React Native is an extension of React to handle mobile apps",
-  //     author: "Emmanuel",
-  //     dateCreated: new Date()
-  //   }
-
-  //   axios.post('http://localhost:3000/posts', postObject)
-  // }
-
-
-  useEffect(() => {
-    async function loadAllPosts() {
-      let data = await getPosts()
-      if (data){
-        setPosts(data)
-      }
-    } loadAllPosts()
-  }, [])
+  // Pages
+  // Landing Page
+  // Homepage (filtered by recency)
+  // ReadBlog
+  // CreateBlog
+  // ProfilePage
+  // About US
+  // Contact Us
+  
  return (
-  <>
-  {JSON.stringify(posts)}
-  {/* <button onClick={createPost}>Create Object</button> */}
-  </>
+  <Router>
+{/* /* Create routes for each path */ }
+    <Routes>
+
+      <Route path="/" element={<Landing/>}/> 
+      
+      {/* Configuring nav elements in the landing page */}
+      <Route element={<Layout/>}> 
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/createblog" element={<CreateBlog/>}/>
+        <Route path="/readblog/:id" element={<ReadBlog/>}/>     
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/contact" element={<Contact/>}/>
+      </Route>
+      
+    </Routes>
+  </Router>
  )
-}
+}     
 
 export default App
