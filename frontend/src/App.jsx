@@ -4,16 +4,16 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 import {HashRouter as Router, Routes, Route} from "react-router-dom"
-import { About } from '../pages/about'
-import { Contact } from '../pages/contact'
-import { CreateBlog } from '../pages/createblog'
-import { Home } from '../pages/home'
-import { Landing } from '../pages/landing'
-import { Profile } from '../pages/profile'
-import { ReadBlog } from '../pages/readblog'
-import { Navbar } from '../components/Navbar'
+import { About } from './pages/about'
+import { Contact } from './pages/contact'
+import { CreateBlog } from './pages/createblog'
+import { Home } from './pages/home'
+import { Landing } from './pages/landing'
+import { Profile } from './pages/profile'
+import { ReadBlog } from './pages/readblog'
+import { Navbar } from './components/Navbar'
 import { NavLink } from 'react-router-dom'
-import { Layout } from '../components/Layout'
+import { Layout } from './components/Layout'
 
 function App() {
 
